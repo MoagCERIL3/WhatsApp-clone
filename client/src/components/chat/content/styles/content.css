@@ -1,0 +1,30 @@
+.chat-section-content {
+  background-image: url("https://i.pinimg.com/564x/58/c3/33/58c33377dfcbb3022493dec49d098b02.jpg");
+  flex: 1;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow: auto;
+}
+
+.chat-message-incoming {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 8px;
+  background-color: #262d31;
+  border-top-left-radius: 0;
+  color: #f1f1f2f2;
+}
+.chat-message-outgoing {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 8px;
+  background-color: #056162;
+  border-top-right-radius: 0;
+  color: #f1f1f2f2;
+  float: right;
+}

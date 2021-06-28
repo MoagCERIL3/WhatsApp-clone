@@ -1,0 +1,36 @@
+.chat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  border-top: 1px solid darkgray;
+}
+
+.chat-footer > form {
+  flex: 1;
+  display: flex;
+}
+
+.chat-footer > form > input {
+  flex: 1;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  background-color: #33383b;
+  min-width: 0;
+  min-height: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  outline: none;
+  will-change: width;
+}
+
+.chat-footer > .MuiIconButton-root .MuiSvgIcon-root {
+  color: gray;
+  padding: 10px;
+}
+
+.chat-footer > form > .MuiIconButton-root .MuiSvgIcon-root {
+  color: gray;
+}

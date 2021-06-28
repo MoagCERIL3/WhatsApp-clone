@@ -1,0 +1,32 @@
+.sidebar-searchBar {
+  display: flex;
+  float: left;
+  align-items: center;
+  background-color: #242d32;
+  height: 39px;
+  padding: 10px;
+}
+
+.sidebar-searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #4a4a4a;
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.sidebar-searchContainer > .MuiSvgIcon-root {
+  color: gray;
+  padding: 10px;
+}
+
+.sidebar-searchContainer > input {
+  outline-width: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.sidebar-row {
+    background-color: #323739;
+}
