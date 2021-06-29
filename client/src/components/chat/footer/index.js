@@ -1,7 +1,7 @@
 import React from 'react'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
-import AttachmentIcon from '@material-ui/icons/Attachment';
+import AttachmentOutlinedIcon from '@material-ui/icons/AttachmentOutlined';
 import { IconButton} from  '@material-ui/core'
 import MicIcon from '@material-ui/icons/Mic';
 import './styles/footer.css'
@@ -14,7 +14,7 @@ const index = () => {
                  <InsertEmoticonIcon/>
             </IconButton>
             <IconButton>
-                <AttachmentIcon/>
+                <AttachmentOutlinedIcon/>
             </IconButton>
             <form>
                 <input placeholder="Type a message" type="text"/>

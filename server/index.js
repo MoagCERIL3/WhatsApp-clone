@@ -40,7 +40,13 @@ db.once('open',()=>{
 
 // Middleware
 
-app.use(express.json())
+app.use(express.json());
+
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin","*");
+    res.setHeader("Access-Control-Allow-Headers","*");
+    next();
+});
 
 // Pusher
 
@@ -58,6 +64,17 @@ const pusher = new Pusher({
 app.get('/messages/:room', (req,res)=>{
     
     Messages.find({ room: req.params.room},(err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }
+    });
+});
+
+app.get('/messages', (req,res)=>{
+    
+    Messages.find((err,data)=>{
         if(err){
             res.status(500).send(err)
         }else{
