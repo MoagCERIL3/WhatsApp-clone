@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 3001;
 const Messages = require('./models/messages')
+const Rooms = require('./models/rooms')
 const Pusher = require("pusher");
 
 // Database
@@ -18,6 +19,8 @@ db.on('error',(error)=> console.log(error))
 db.once('open',()=>{
 
     console.log('Connected to Database ...');
+
+    // messages
     const collection = db.collection('messages');
     const changeStream = collection.watch();
 
@@ -36,7 +39,26 @@ db.once('open',()=>{
         }
     })
 
-})
+    // Rooms
+    const roomsCollection = db.collection('rooms');
+    const changeStreamRooms = roomsCollection.watch();
+
+    changeStreamRooms.on("change", (change)=>{
+        console.log("A change has occured", change);
+
+        if(change.operationType =="insert"){
+
+            const roomsDetails = change.fullDocument;
+            pusher.trigger("messages","inserted",{
+                name: roomsDetails.name
+            });
+
+        }else{
+            console.log('Error triggering Pusher')
+        }
+    })
+
+});
 
 // Middleware
 
@@ -95,8 +117,31 @@ app.post('/messages/new', (req,res)=>{
             res.status(201).send(data)
         }
     });
-})
+});
 
+app.post('/rooms/new', (req,res)=>{
+    
+    const room= req.body;
+
+    Rooms.create(room ,(err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(201).send(data)
+        }
+    });
+});
+
+app.get('/rooms', (req,res)=>{
+    
+    Rooms.find((err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }
+    });
+});
 
 
 
