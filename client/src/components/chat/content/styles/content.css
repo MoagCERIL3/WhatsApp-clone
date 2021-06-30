@@ -16,6 +16,7 @@
   background-color: #262d31;
   border-top-left-radius: 0;
   color: #f1f1f2f2;
+  margin-bottom: 10px;
 }
 .chat-message-outgoing {
   position: relative;

@@ -7,8 +7,8 @@ const index = (props) => {
 
             {props.messages.map((msg)=>{
                return ( 
-                    <p className="chat-message-incoming">
-                        <span>message</span>
+                    <p key={msg._id} className="chat-message-incoming">
+                        <span>{msg.message}</span>
                     </p>
                )
             })}
