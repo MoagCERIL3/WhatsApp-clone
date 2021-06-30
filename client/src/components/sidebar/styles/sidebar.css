@@ -3,3 +3,8 @@
   flex-direction: column;
   flex: 0.35;
 }
+
+.sidebar-chatRows {
+  flex: 1;
+  overflow: auto;
+}

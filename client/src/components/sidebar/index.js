@@ -4,6 +4,7 @@ import SearchBar from './searchBar/index'
 import Row from './row/index'
 import './styles/sidebar.css'
 import axios from '../../axios/axios'
+import Pusher from 'pusher-js'
 
 function Index(){
 
@@ -18,7 +19,24 @@ function Index(){
        
     }, [])
 
-    console.log(rooms)
+    useEffect(() => {
+
+        const pusher = new Pusher('6f676c4e9917edf6e3e4', {
+          cluster: 'eu'
+        });
+      
+        const channel = pusher.subscribe('rooms');
+        channel.bind('inserted', function(newRoom) {
+            setRooms([...rooms,newRoom])
+        });
+        
+        return () => {
+          channel.unbind_all();
+          channel.unsubscribe();
+        }
+      }, [rooms])
+
+   
     return (
         <div className="sidebar">
             <SidebarHeader/>
