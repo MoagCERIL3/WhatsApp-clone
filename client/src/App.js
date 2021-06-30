@@ -41,7 +41,7 @@ function App() {
     <div className="app">
       <div className="app-body"> 
         <Sidebar />
-        <Chat/>
+        <Chat messages={messages}/>
       </div>   
     </div>
   );

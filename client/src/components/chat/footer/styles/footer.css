@@ -24,6 +24,7 @@
   line-height: 20px;
   outline: none;
   will-change: width;
+  color: #f1f1f2;
 }
 
 .chat-footer > .MuiIconButton-root .MuiSvgIcon-root {

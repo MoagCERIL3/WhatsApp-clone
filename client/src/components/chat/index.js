@@ -4,11 +4,12 @@ import Header from './header/index'
 import Content from './content/index'
 import Footer from './footer/index'
 
-const index = () => {
+const index = (props) => {
+
     return (
         <div className="chat-section"> 
             <Header/>
-            <Content/>
+            <Content messages={props.messages}/>
             <Footer/>
         </div>
     )
