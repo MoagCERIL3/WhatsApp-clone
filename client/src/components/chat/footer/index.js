@@ -5,18 +5,24 @@ import AttachmentOutlinedIcon from '@material-ui/icons/AttachmentOutlined';
 import { IconButton} from  '@material-ui/core'
 import MicIcon from '@material-ui/icons/Mic';
 import './styles/footer.css'
+import axios from '../../../axios/axios'
 
 
 
-
-function Index() {
+function Index(props) {
 
     const [input,setInput] = useState('');
 
-    const sendMessage = (e) => {
+    const sendMessage = async (e) => {
 
         e.preventDefault();
-        console.log("msg",input);
+        
+        await axios.post('/messages/new',{
+            message: input,
+            author: "mouad",
+            room:"room1",
+            timestamp: "default"
+        })
         setInput("");
     }
     return (

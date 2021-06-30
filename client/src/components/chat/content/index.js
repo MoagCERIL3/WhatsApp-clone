@@ -6,16 +6,23 @@ const index = (props) => {
         <div className="chat-section-content">
 
             {props.messages.map((msg)=>{
-               return ( 
-                    <p key={msg._id} className="chat-message-incoming">
-                        <span>{msg.message}</span>
-                    </p>
-               )
+                if(msg.author === "mouad"){
+                    return ( 
+                        <p key={msg._id} className="chat-message-outgoing">
+                            <span>{msg.message}</span>
+                        </p>
+                   )
+                }else{
+                    return ( 
+                        <p key={msg._id} className="chat-message-incoming">
+                            <span>{msg.message}</span>
+                        </p>
+                   )
+                }
+               
             })}
            
-            <p className="chat-message-outgoing">
-                <span>message</span>
-            </p>
+           
            
         </div>
     )
