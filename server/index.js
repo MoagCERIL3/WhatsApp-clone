@@ -143,6 +143,17 @@ app.get('/rooms', (req,res)=>{
     });
 });
 
+app.get('/room/:id', (req,res)=>{
+    
+    Rooms.find({ _id: req.params.id},(err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }
+    });
+});
+
 
 
 

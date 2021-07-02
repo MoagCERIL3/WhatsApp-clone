@@ -1,18 +1,23 @@
 import React from 'react'
 import './styles/row.css'
 import {Avatar} from '@material-ui/core'
+import {Link} from 'react-router-dom'
+
 
 
 const index = (props) => {
     return (
-        <div className="sidebar-row">
-            <Avatar key={props.id}/>
-            <div className="sidebar-row-content">
-                <h2>{props.name}</h2>
-                <p>this is the recent message in the chat</p>  
-            </div>
-                      
-        </div>
+        
+            <Link to={'/rooms/'+props.id}>
+                <div className="sidebar-row">
+                    <Avatar key={props.id}/>
+                    <div className="sidebar-row-content">
+                        <h2>{props.name}</h2>
+                        <p>this is the recent message in the chat</p>  
+                    </div>
+                </div>
+            </Link>      
+        
     )
 }
 

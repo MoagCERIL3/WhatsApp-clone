@@ -8,9 +8,12 @@ const index = (props) => {
             {props.messages.map((msg)=>{
                 if(msg.author === "mouad"){
                     return ( 
-                        <p key={msg._id} className="chat-message-outgoing">
-                            <span>{msg.message}</span>
-                        </p>
+                        <div>
+                            <p key={msg._id} className="chat-message-outgoing">
+                                <span>{msg.message}</span>
+                            </p>
+                        </div>
+                        
                    )
                 }else{
                     return ( 
