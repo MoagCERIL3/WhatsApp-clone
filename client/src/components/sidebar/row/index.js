@@ -6,7 +6,7 @@ import {Avatar} from '@material-ui/core'
 const index = (props) => {
     return (
         <div className="sidebar-row">
-            <Avatar />
+            <Avatar key={props.id}/>
             <div className="sidebar-row-content">
                 <h2>{props.name}</h2>
                 <p>this is the recent message in the chat</p>  

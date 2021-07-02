@@ -4,10 +4,11 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {Avatar, IconButton} from '@material-ui/core'
 import './styles/header.css'
 import axios from '../../../axios/axios'
-
+import { useContextValue } from '../../../context/context';
 
 function Index() {
 
+    
     const newChat = async (e) => {
 
         e.preventDefault();

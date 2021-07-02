@@ -6,35 +6,7 @@ import './styles/sidebar.css'
 import axios from '../../axios/axios'
 import Pusher from 'pusher-js'
 
-function Index(){
-
-    const [rooms,setRooms] = useState([]);
-
-    useEffect(() => {
-        axios.get('/rooms')
-            .then(res => { 
-                setRooms(res.data);
-                
-            });
-       
-    }, [])
-
-    useEffect(() => {
-
-        const pusher = new Pusher('6f676c4e9917edf6e3e4', {
-          cluster: 'eu'
-        });
-      
-        const channel = pusher.subscribe('rooms');
-        channel.bind('inserted', function(newRoom) {
-            setRooms([...rooms,newRoom])
-        });
-        
-        return () => {
-          channel.unbind_all();
-          channel.unsubscribe();
-        }
-      }, [rooms])
+function Index(props){
 
    
     return (
@@ -43,9 +15,9 @@ function Index(){
             <SearchBar />
 
             <div className="sidebar-chatRows">
-                {rooms.map(singleRoom=>(
-                        <Row key={singleRoom._id} name={singleRoom.name}
-                        />
+                {props.rooms.map(singleRoom=>(
+                        
+                        <Row key={singleRoom._id} name={singleRoom.name} id={singleRoom._id}/>
                 ))}
             </div>
             
