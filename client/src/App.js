@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react'
 import Pusher from 'pusher-js'
 import axios from './axios/axios'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import Login from './components/login/index'
 
 function App() {
 
@@ -67,27 +67,30 @@ function App() {
 
 
  
+      const [user,setUser] = useState(null);
 
 
   return (
     <div className="app">
-      <div className="app-body"> 
-        
-        <Router>
-        <Sidebar rooms={rooms}/>
-          <Switch>
-           
-            <Route path='/rooms/:id'>
-              <Chat messages={messages}/>
-            </Route>
-            <Route path='/'>
-              
-            </Route>
+       {!user ? (
+          <Login />
+        ) : (
+       <div className="app-body"> 
+            <Router>
+            <Sidebar rooms={rooms}/>
+              <Switch>
+                <Route path='/rooms/:id'>
+                  <Chat messages={messages}/>
+                </Route>
+                <Route path='/'>
+                  
+                </Route>
 
-          </Switch>
-        </Router>
-        
-      </div>   
+              </Switch>
+            </Router>
+            
+        </div>  
+      )} 
     </div>
   );
 }

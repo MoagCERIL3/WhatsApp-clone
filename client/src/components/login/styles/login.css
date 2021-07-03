@@ -1,0 +1,42 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #090e11;
+}
+
+.login-container {
+  padding: 100px;
+  text-align: center;
+  background-color: #2a2f32;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.login-container > img {
+  object-fit: contain;
+  max-height: 300px;
+  margin-bottom: 40px;
+}
+
+.login-content > h4 {
+  color: #a6a8aa;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.login-container > button {
+  margin-top: 20px;
+  background-color: #00af9c;
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.login-footer {
+  margin-top: 50px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a6a8aa;
+}
