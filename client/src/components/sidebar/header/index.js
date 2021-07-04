@@ -8,6 +8,7 @@ import { useContextValue } from '../../../context/context';
 
 function Index() {
 
+    const [{user},dispatch] = useContextValue();
     
     const newChat = async (e) => {
 
@@ -26,7 +27,7 @@ function Index() {
     }
     return (
         <div className="sidebar-header">
-            <Avatar/>
+            <Avatar src={user?.photoURL}/>
             <div className="sidebar-header-right">
                 <IconButton onClick={newChat}>
                     <ChatIcon />

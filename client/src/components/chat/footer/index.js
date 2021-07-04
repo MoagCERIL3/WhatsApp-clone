@@ -6,12 +6,14 @@ import { IconButton} from  '@material-ui/core'
 import MicIcon from '@material-ui/icons/Mic';
 import './styles/footer.css'
 import axios from '../../../axios/axios'
+import { useContextValue } from '../../../context/context';
 
 
 
 function Index(props) {
 
     const [input,setInput] = useState('');
+    const  [{user}] = useContextValue();
 
     const sendMessage = async (e) => {
 
@@ -19,9 +21,9 @@ function Index(props) {
         
         await axios.post('/messages/new',{
             message: input,
-            author: "mouad",
-            room:"room1",
-            timestamp: "default"
+            author: user.displayName,
+            room: props.room,
+            timestamp: new Date().toString()
         })
         setInput("");
     }

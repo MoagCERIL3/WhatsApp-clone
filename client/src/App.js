@@ -6,6 +6,7 @@ import Pusher from 'pusher-js'
 import axios from './axios/axios'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/login/index'
+import { useContextValue } from './context/context';
 
 function App() {
 
@@ -55,7 +56,6 @@ function App() {
       
         const channelRooms = pusherRooms.subscribe('messages');
         channelRooms.bind('inserted', function(newRoom) {
-            console.log(newRoom);
             setRooms([...rooms,newRoom]);
         });
         
@@ -65,10 +65,10 @@ function App() {
         }
       }, [rooms])
 
-
+      
  
-      const [user,setUser] = useState(null);
-
+      const [{user},dispatch] = useContextValue();
+      console.log(user)
 
   return (
     <div className="app">

@@ -1,5 +1,5 @@
 export const initialState ={
-    user : {},
+    user : null,
     currentRoom : {}
 }
 
@@ -9,12 +9,12 @@ export const actionTypes ={
 };
 
 const reducer = (state,action) =>{
-
+    console.log(action);
     switch(action.type){
         case actionTypes.SET_USER:
             return {
                 ...state,
-                user: action.item,
+                user: action.user,
             };
        
         case actionTypes.SET_ROOM:
