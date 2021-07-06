@@ -154,6 +154,17 @@ app.get('/room/:id', (req,res)=>{
     });
 });
 
+app.get('/room/recentMessage/:id', (req,res)=>{
+    
+    Messages.find({ room: req.params.id}).sort({'timestamp':'desc'}).exec((err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }
+    });
+});
+
 
 
 

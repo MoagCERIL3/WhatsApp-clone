@@ -68,7 +68,7 @@ function App() {
       
  
       const [{user},dispatch] = useContextValue();
-      console.log(user)
+      //console.log(user);
 
   return (
     <div className="app">
