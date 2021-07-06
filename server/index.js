@@ -5,6 +5,7 @@ const PORT = 3001;
 const Messages = require('./models/messages')
 const Rooms = require('./models/rooms')
 const Pusher = require("pusher");
+const Users = require('./models/users')
 
 // Database
 const url ='mongodb+srv://root:root@cluster0.osdlf.mongodb.net/whatsAppDb?retryWrites=true&w=majority';
@@ -165,6 +166,19 @@ app.get('/room/recentMessage/:id', (req,res)=>{
     });
 });
 
+
+app.post('/users/new', (req,res)=>{
+    
+    const user= req.body;
+
+    Users.create(message ,(err,data)=>{
+        if(err){
+            res.status(500).send(err)
+        }else{
+            res.status(201).send(data)
+        }
+    });
+});
 
 
 

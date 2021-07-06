@@ -21,7 +21,7 @@ function Index(props) {
         
         await axios.post('/messages/new',{
             message: input,
-            author: user.displayName,
+            author: user.uid,
             room: props.room,
             timestamp: new Date().toString()
         })

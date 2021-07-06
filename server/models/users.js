@@ -3,9 +3,19 @@ const Schema = mongoose.Schema;
 
 
 const usersSchema = new Schema({
-    name: {
+    userId: {
         type: String
+    },
+    userDisplayName:{
+        type : String
+    },
+    userEmail:{
+        type:String
+    },
+    userStatus:{
+        type: Boolean
     }
+
 
 });
 module.exports = mongoose.model('users',usersSchema)

@@ -8,6 +8,8 @@ import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { useContextValue } from '../../context/context'
 import { actionTypes } from '../../context/reducer'
+import Pusher from 'pusher-js'
+
 
 function Index (props)  {
 
@@ -47,7 +49,22 @@ function Index (props)  {
      
   }, [id])
 
+  useEffect(() => {
 
+    const pusher = new Pusher('6f676c4e9917edf6e3e4', {
+      cluster: 'eu'
+    });
+  
+    const channel = pusher.subscribe('messages');
+    channel.bind('inserted', function(newMessage) {
+      setMessages([...messages,newMessage])
+    });
+    
+    return () => {
+      channel.unbind_all();
+      channel.unsubscribe();
+    }
+  }, [messages])
 
  
   
